@@ -74,20 +74,8 @@ export function CardsChat() {
 
   const [messages, setMessages] = React.useState([
     {
-      role: "agent",
-      content: "Hi, how can I help you today?",
-    },
-    {
-      role: "user",
-      content: "Hey, I'm having trouble with my brain.",
-    },
-    {
-      role: "agent",
-      content: "What seems to be the problem?",
-    },
-    {
-      role: "user",
-      content: "I can't log out from depression.",
+      "role":"agent",
+      "content":"Hello, I am your AI Mental Health Advisor. How can I help you today? Please feel free to share any problems or worries you have, and I'll do my best to provide advice and remedies to support your mental health."
     },
   ])
   const [input, setInput] = React.useState("")
@@ -104,13 +92,14 @@ export function CardsChat() {
           headers: {
             "Content-Type": "application/json"
           },
-          body: ""
+          body: JSON.stringify({prompt:""})
         });
 
         if (response.ok) {
           // Handle the response here
           const data = await response.json();
           console.log(data);
+          setMessages({"role":"agent","content":data.response});
         } else {
           throw new Error("Request failed");
         }
@@ -191,7 +180,7 @@ export function CardsChat() {
                   className="ml-auto rounded-full"
                   onClick={() => setOpen(true)}
                 >
-                  <Plus className="h-4 w-4" />
+                  <Plus className="w-4 h-4" />
                   <span className="sr-only">New message</span>
                 </Button>
               </TooltipTrigger>
@@ -201,7 +190,7 @@ export function CardsChat() {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {messages.map((message, index) => (
+            {messages.length != 0 && (messages.map((message, index) => (
               <div
                 key={index}
                 className={cn(
@@ -213,7 +202,7 @@ export function CardsChat() {
               >
                 {message.content}
               </div>
-            ))}
+            )))}
           </div>
           {isLoading && <p>Loading...</p>}
           {isError && <p>Something went wrong...</p>}
@@ -221,7 +210,7 @@ export function CardsChat() {
         <CardFooter>
           <form
             onSubmit={onSubmitHandler}
-            className="flex w-full items-center space-x-2"
+            className="flex items-center w-full space-x-2"
           >
             <Input
               id="message"
@@ -233,12 +222,12 @@ export function CardsChat() {
             />
             {isLoading ? (
               <Button size='icon' disabled={true}>
-                <Loader2 className="h-4 w-4" />
+                <Loader2 className="w-4 h-4" />
                 <span className="sr-only">Loading</span>
               </Button>
             ) :
               (<Button type="submit" size="icon" disabled={inputLength === 0}>
-                <Send className="h-4 w-4" />
+                <Send className="w-4 h-4" />
                 <span className="sr-only">Send</span>
               </Button>)}
           </form>
@@ -246,13 +235,13 @@ export function CardsChat() {
       </Card>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="gap-0 p-0 outline-none">
-          <DialogHeader className="px-4 pb-4 pt-5">
+          <DialogHeader className="px-4 pt-5 pb-4">
             <DialogTitle>New message</DialogTitle>
             <DialogDescription>
               Select a thread which you want to continue
             </DialogDescription>
           </DialogHeader>
-          <Command className="overflow-hidden rounded-t-none border-t">
+          <Command className="overflow-hidden border-t rounded-t-none">
             <CommandInput placeholder="Search thread..." />
             <CommandList>
               <CommandEmpty>No threads found.</CommandEmpty>
@@ -290,14 +279,14 @@ export function CardsChat() {
                       </p>
                     </div>
                     {selectedThreads.includes(thread) ? (
-                      <Check className="ml-auto flex h-5 w-5 text-primary" />
+                      <Check className="flex w-5 h-5 ml-auto text-primary" />
                     ) : null}
                   </CommandItem>
                 ))}
               </CommandGroup>
             </CommandList>
           </Command>
-          <DialogFooter className="flex items-center border-t p-4 sm:justify-between">
+          <DialogFooter className="flex items-center p-4 border-t sm:justify-between">
             {selectedThreads.length > 0 ? (
               <div className="flex -space-x-2 overflow-hidden">
                 {selectedThreads.map((thread) => (

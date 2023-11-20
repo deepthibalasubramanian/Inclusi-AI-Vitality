@@ -1,16 +1,15 @@
 import requests
 from app import app
 from flask import jsonify,request
+from dotenv import load_dotenv
+load_dotenv()
+import openai
+import os
 
 
-url = "https://chatgpt-api8.p.rapidapi.com/"
-headers = {
-	"content-type": "application/json",
-	"X-RapidAPI-Key": "1caad83effmshf066fbc4fac4bc7p17aa66jsn93bf335743ca",
-	"X-RapidAPI-Host": "chatgpt-api8.p.rapidapi.com"
-}
+secret_key = os.getenv("SECRET_KEY")
 # cors error
-
+openai.api_key = secret_key
 
 conversation_history = []
 @app.route("/process",methods=["POST"])
@@ -27,10 +26,13 @@ def prompt():
     else:
         prompt = is_not_initial_prompt
     conversation_history.append({"role": "user", "content": prompt})
-    response = requests.post(url, json=conversation_history, headers=headers)
-    print(response.json())
-    conversation_history.append({"role": "assistant", "content": response.json()['text']})
-    return jsonify({"response": response.json()['text']}), 200
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=conversation_history
+    )
+    print(response.choices[0].message["content"])
+    conversation_history.append({"role": "assistant", "content": response.choices[0].message["content"]})
+    return jsonify({"response": response.choices[0].message["content"]}), 200
 
 @app.route("/demo",methods=["POST"])
 def demo():
