@@ -85,9 +85,10 @@ export function CardsChat() {
   const inputLength = input.trim().length
 
   React.useEffect(() => {
+    console.log('Initial Prompt triggered');
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/process", {
+        const response = await fetch("http://127.0.0.1:5000/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -99,7 +100,6 @@ export function CardsChat() {
           // Handle the response here
           const data = await response.json();
           console.log(data);
-          setMessages({"role":"agent","content":data.response});
         } else {
           throw new Error("Request failed");
         }
@@ -125,9 +125,9 @@ export function CardsChat() {
     ])
 
     setIsLoading(true)
-
+    setInput("")
     try{
-
+      
       const body =  await fetch("http://127.0.0.1:5000/process", {
         method: "POST",
         headers: {
