@@ -1,6 +1,6 @@
 "use client"
 import * as React from "react"
-import { Check, Plus, Send } from "lucide-react"
+import { Check, Plus, Send, Loader2 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import {
@@ -65,7 +65,7 @@ const threads = [
     content: "How to overcome loneliness",
     avatar: "/avatars/04.png",
   },
-] 
+]
 
 
 export function CardsChat() {
@@ -91,7 +91,82 @@ export function CardsChat() {
     },
   ])
   const [input, setInput] = React.useState("")
+  const [isLoading, setIsLoading] = React.useState(false)
+  const [isError, setIsError] = React.useState(false)
+
   const inputLength = input.trim().length
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:5000/process", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: ""
+        });
+
+        if (response.ok) {
+          // Handle the response here
+          const data = await response.json();
+          console.log(data);
+        } else {
+          throw new Error("Request failed");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const onSubmitHandler =  async (event) => {
+    event.preventDefault()
+    if (inputLength === 0) return
+    setIsError(false)
+    console.log(JSON.stringify({ prompt: input }))
+    setMessages([
+      ...messages,
+      {
+        role: "user",
+        content: input,
+      },
+    ])
+
+    setIsLoading(true)
+
+    try{
+
+      const body =  await fetch("http://127.0.0.1:5000/process", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ prompt: input })
+      })
+
+      setIsLoading(false)
+      const response = await body.json()
+
+      console.log(response.response)
+      setMessages((prevmes) => [
+        ...prevmes,
+        {
+          role: "agent",
+          content: response.response,
+        },
+      ])
+
+      setInput("")
+    }catch(error){
+      setIsError(true)
+      setInput("")
+      console.log(error)
+      setIsLoading(false)
+    }
+  }
 
   return (
     <>
@@ -140,21 +215,12 @@ export function CardsChat() {
               </div>
             ))}
           </div>
+          {isLoading && <p>Loading...</p>}
+          {isError && <p>Something went wrong...</p>}
         </CardContent>
         <CardFooter>
           <form
-            onSubmit={(event) => {
-              event.preventDefault()
-              if (inputLength === 0) return
-              setMessages([
-                ...messages,
-                {
-                  role: "user",
-                  content: input,
-                },
-              ])
-              setInput("")
-            }}
+            onSubmit={onSubmitHandler}
             className="flex w-full items-center space-x-2"
           >
             <Input
@@ -165,10 +231,16 @@ export function CardsChat() {
               value={input}
               onChange={(event) => setInput(event.target.value)}
             />
-            <Button type="submit" size="icon" disabled={inputLength === 0}>
-              <Send className="h-4 w-4" />
-              <span className="sr-only">Send</span>
-            </Button>
+            {isLoading ? (
+              <Button size='icon' disabled={true}>
+                <Loader2 className="h-4 w-4" />
+                <span className="sr-only">Loading</span>
+              </Button>
+            ) :
+              (<Button type="submit" size="icon" disabled={inputLength === 0}>
+                <Send className="h-4 w-4" />
+                <span className="sr-only">Send</span>
+              </Button>)}
           </form>
         </CardFooter>
       </Card>
