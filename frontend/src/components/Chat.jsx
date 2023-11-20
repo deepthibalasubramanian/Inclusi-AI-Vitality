@@ -1,6 +1,6 @@
 "use client"
+import { Check, Plus, Send } from "lucide-react"
 import * as React from "react"
-import { Check, Plus, Send, Loader2 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import {
@@ -38,6 +38,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/ui/tooltip"
+import { Loading, LoadingCircle } from "./ui/loading"
 
 const threads = [
   {
@@ -168,7 +169,7 @@ export function CardsChat() {
             </Avatar>
             <div>
               <p className="text-sm font-medium leading-none">Emmanuel Allan</p>
-              <p className="text-sm text-muted-foreground">a@example.com</p>
+              <p className="text-sm text-muted-foreground">emmanuel@gmail.com</p>
             </div>
           </div>
           <TooltipProvider delayDuration={0}>
@@ -190,21 +191,30 @@ export function CardsChat() {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {messages.length != 0 && (messages.map((message, index) => (
-              <div
-                key={index}
-                className={cn(
-                  "flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm",
-                  message.role === "user"
-                    ? "ml-auto bg-primary text-primary-foreground"
-                    : "bg-muted"
-                )}
-              >
-                {message.content}
-              </div>
-            )))}
+            {messages.length !== 0 && (
+              messages.map((message, index) => (
+                <div
+                  key={index}
+                  className={cn(
+                    "flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm",
+                    message.role === "user"
+                      ? "ml-auto bg-primary text-primary-foreground"
+                      : "bg-muted"
+                  )}
+                >
+
+                    <p className={cn(
+                      message.role === "user"
+                        ? "text-right"
+                        : "text-left"
+                    )}>
+                      {message.content}
+                    </p>
+                  </div>
+              ))
+            )}
           </div>
-          {isLoading && <p>Loading...</p>}
+          {isLoading && <Loading/>}
           {isError && <p>Something went wrong...</p>}
         </CardContent>
         <CardFooter>
@@ -222,7 +232,7 @@ export function CardsChat() {
             />
             {isLoading ? (
               <Button size='icon' disabled={true}>
-                <Loader2 className="w-4 h-4" />
+                <LoadingCircle/>
                 <span className="sr-only">Loading</span>
               </Button>
             ) :
