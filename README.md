@@ -58,6 +58,10 @@ Here are some statistics that emphasize the significance of addressing mental he
     * Create an Azure App Service and deploy the frontend code.
     * Configure a custom domain for the frontend app.
 
+## Demo
+![Screenshot from 2023-11-20 18-32-36](https://github.com/deepthibalasubramanian/Inclusi-AI-Vitality/assets/90669430/29fa5a98-9389-491d-8ded-ba9d4ab1e981)
+
+
 ## Usage
 
 1. **Access the App:**
