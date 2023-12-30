@@ -1,93 +1,105 @@
 # Inclusi-AI-Vitality | Mental Well-being App
 
-A comprehensive mental well-being app powered by Flask, Next.js, OpenAI API, and Azure services.
+A comprehensive mental well-being app developed by Team Inclusi-AI Vitality, harnessing Flask, Next.js, OpenAI API, and Azure services. The app aims to provide personalized support for emotional well-being through features such as a conversational chatbot, personalized recommendations, mood tracking, and a secure user experience.
 
 ## Project Overview
 
-This project aims to provide users with a personalized mental well-being app that offers a range of features to support their emotional well-being. The app utilizes Flask as a backend framework, Next.js for a dynamic frontend, OpenAI API for natural language processing and conversational AI, and Azure services for cloud hosting and scalability.
+This open-source project emerged from the Microsoft Learn Student Ambassadors Project cohort, where Team Inclusi-AI Vitality collaborated to harness AI for real-world mental health challenges. The app integrates cutting-edge technologies, including Flask for the backend, Next.js for the frontend, OpenAI API for conversational AI, and Azure services for cloud hosting.
+<p align="center">
+  <img src="https://github.com/deepthibalasubramanian/Inclusi-AI-Vitality/assets/90669430/29fa5a98-9389-491d-8ded-ba9d4ab1e981" alt="Inclusi-AI-Vitality Demo" width="700">
+</p>
 
 ## Key Features
 
-* **Conversational Chatbot:** A sophisticated chatbot powered by OpenAI API's GPT-3 model to engage in meaningful conversations with users, providing emotional support and guidance.
+| Feature                 | Description                                                                                                  |
+|-------------------------|--------------------------------------------------------------------------------------------------------------|
+| Conversational Chatbot  | Engage in meaningful conversations with the sophisticated chatbot powered by OpenAI API's GPT-3 model.        |
+| Personalized Recommendations | Receive tailored suggestions for mental well-being resources based on user preferences and needs.          |
+| Mood Tracking           | Record daily moods to identify patterns and gain insights into emotional well-being.                          |
+| Secure User Experience   | Utilizes Azure App Service and Azure Database for PostgreSQL to ensure secure storage and data privacy.        |
 
-* **Personalized Recommendations:** Tailored recommendations for mental well-being resources, such as mindfulness exercises, relaxation techniques, and support groups, based on user preferences and needs.
+ ## Achievements and Project Demo
+- *Team Inclusi-AI Vitality:* A dynamic team dedicated to leveraging AI for mental well-being solutions during the Microsoft Learn Student Ambassadors Project cohort from September to November 2023. Our commitment to innovation and user support led us to develop a functional prototype, showcasing our dedication to making a positive impact on users.
+- Explore the app by accessing the [deployed frontend app's URL](https://github.com/deepthibalasubramanian/Inclusi-AI-Vitality). Interact with the chatbot, utilize mood tracking, and explore personalized recommendations.
+- You can watch the [project demo here](https://www.youtube.com/watch?v=4YFudJ-0B2s).
 
-* **Mood Tracking:** A mood tracking feature allows users to record their daily mood, enabling them to identify patterns and gain insights into their emotional well-being.
+<p align="center">
+  <img src="https://github.com/meaviral17/Inclusi-AI-Vitality/assets/81246801/97644b37-2e2f-4541-ba06-e70847de9403" alt="Inclusi-AI-Vitality Demo" width="700">
+</p>
 
-* **Secure User Experience:** User data is stored securely using Azure App Service and Azure Database for PostgreSQL, ensuring data privacy and protection.
+<p align="center">
+  <img src="https://github.com/meaviral17/Inclusi-AI-Vitality/assets/81246801/11afbcf0-94cb-47c5-8e0d-76ee13c2e8fa" alt="Inclusi-AI-Vitality Demo" width="700">
+</p>
 
 ## Statistics on Mental Health
 
-Here are some statistics that emphasize the significance of addressing mental health:
+Here are some compelling statistics highlighting the importance of addressing mental health:
 
 - Approximately 450 million people worldwide suffer from mental health disorders.
-- Depression is the leading cause of disability worldwide, affecting more than 264 million people.
+- Depression affects more than 264 million people, making it the leading cause of disability globally.
 - Suicide is the second leading cause of death among individuals aged 15-29.
 - Mental health conditions account for 16% of the global burden of disease and injury.
 - Only 1 in 5 people with mental health disorders receive adequate treatment.
 
 ## Technologies Used
 
-* **Backend:** Flask
-
-* **Frontend:** Next.js
-
-* **Conversational AI:** OpenAI API
-
-* **Cloud Hosting:** Azure App Service
-
-* **Database:** Azure Database for PostgreSQL
+- **Backend:** Flask
+- **Frontend:** Next.js
+- **Conversational AI:** OpenAI API
+- **Cloud Hosting:** Azure App Service
+- **Database:** Azure Database for PostgreSQL
 
 ## Development Setup
 
 1. **Prerequisites:**
-    * Node.js
-    * Python
-    * Azure CLI
+    - Node.js
+    - Python
+    - Azure CLI
 
 2. **Backend Setup:**
-    * Install dependencies: `pip install -r requirements.txt`
-    * Run the backend server: `python app.py`
+    - Install dependencies: `pip install -r requirements.txt`
+    - Run the backend server: `python app.py`
 
 3. **Frontend Setup:**
-    * Install dependencies: `npm install`
-    * Run the frontend server: `npm run dev`
+    - Install dependencies: `npm install`
+    - Run the frontend server: `npm run dev`
 
 4. **Deployment:**
-    * Create an Azure App Service and deploy the backend code.
-    * Create an Azure App Service and deploy the frontend code.
-    * Configure a custom domain for the frontend app.
-
-## Demo
-![Screenshot from 2023-11-20 18-32-36](https://github.com/deepthibalasubramanian/Inclusi-AI-Vitality/assets/90669430/29fa5a98-9389-491d-8ded-ba9d4ab1e981)
-
-
-## Usage
-
-1. **Access the App:**
-    * Open a web browser and navigate to the deployed frontend app's URL.
-
-2. **Interact with the Chatbot:**
-    * Engage in conversations with the chatbot by typing your messages in the chat window.
-
-3. **Utilize Mood Tracking:**
-    * Use the mood tracking feature to record your daily mood.
-
-4. **Explore Recommendations:**
-    * Browse through personalized recommendations for mental well-being resources.
+    - Create an Azure App Service and deploy the backend code.
+    - Create an Azure App Service and deploy the frontend code.
+    - Configure a custom domain for the frontend app.
 
 ## Contribution Guidelines
 
-We welcome contributions to this project. Please follow these guidelines:
+We value and welcome contributions to enhance the Inclusi-AI-Vitality app. To contribute, follow these guidelines:
 
-* **Create a Pull Request:** Fork the repository, make your changes, and open a pull request.
+1. **Create a Pull Request:**
+    - Fork the repository, create a feature branch, and submit a pull request.
 
-* **Adhere to Coding Style:** Follow the existing coding style and use proper indentation and formatting.
+2. **Code Quality:**
+    - Adhere to the existing coding style and conventions.
+    - Ensure your code is well-documented, and use meaningful variable and function names.
 
-* **Provide Clear Documentation:** Add comments to explain your code and changes.
+3. **Testing:**
+    - Thoroughly test your changes locally before submitting a pull request.
+    - Include test cases when adding new features.
 
-* **Test Your Changes:** Thoroughly test your changes before submitting a pull request.
+4. **Feature Proposals:**
+    - For significant changes or new features, create an issue to discuss the proposal before implementation.
+
+5. **Documentation:**
+    - Provide clear and concise documentation for any new features or changes.
+    - Update the README with relevant information about your contributions.
+
+6. **Communication:**
+    - Engage in discussions on GitHub issues.
+    - Be responsive to feedback and questions related to your pull request.
+
+7. **License Agreement:**
+    - Ensure your contributions comply with the project's MIT License.
 
 ## License
 
 This project is licensed under the MIT License.
+
+---
