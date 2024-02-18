@@ -12,6 +12,10 @@ secret_key = os.getenv("SECRET_KEY")
 openai.api_key = secret_key
 
 conversation_history = []
+@app.route("/test",methods=["GET"])
+def hellow():
+    return jsonify({"message":"Hello World"}), 200
+
 @app.route("/process",methods=["POST"])
 def prompt():
     data = request.json

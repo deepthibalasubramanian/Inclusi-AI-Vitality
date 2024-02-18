@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: next-ui
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    depends_on:
+      - backend
+    networks:
+      - mern-network
+
+  backend:
+    build: ./backend
+    container_name: node-api
+    restart: always
+    ports:
+      - "5000:5000"
+    networks:
+      - mern-network
+  
+networks:
+  mern-network:

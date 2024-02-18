@@ -165,11 +165,11 @@ export function CardsChat() {
           <div className="flex items-center space-x-4">
             <Avatar>
               <AvatarImage src="/avatars/01.png" alt="Image" />
-              <AvatarFallback>EA</AvatarFallback>
+              <AvatarFallback>AS</AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-sm font-medium leading-none">Emmanuel Allan</p>
-              <p className="text-sm text-muted-foreground">emmanuel@gmail.com</p>
+              <p className="text-sm font-medium leading-none">Aviral Srivastava</p>
+              <p className="text-sm text-muted-foreground">meaviral17@gmail.com</p>
             </div>
           </div>
           <TooltipProvider delayDuration={0}>
