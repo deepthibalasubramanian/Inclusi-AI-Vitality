@@ -24,11 +24,13 @@ This open-source project emerged from the Microsoft Learn Student Ambassadors Pr
 - You can watch the [project demo here](https://www.youtube.com/watch?v=4YFudJ-0B2s).
 
 <p align="center">
-  <img src="https://github.com/meaviral17/Inclusi-AI-Vitality/assets/81246801/97644b37-2e2f-4541-ba06-e70847de9403" alt="Inclusi-AI-Vitality Demo" width="700">
+  <img src="![img1](https://github.com/meaviral17/Vitality-Bot/assets/81246801/6fdbd935-9b16-44cb-81de-f14c4bee1a8e)
+" alt="Inclusi-AI-Vitality Demo" width="700">
 </p>
 
 <p align="center">
-  <img src="https://github.com/meaviral17/Inclusi-AI-Vitality/assets/81246801/11afbcf0-94cb-47c5-8e0d-76ee13c2e8fa" alt="Inclusi-AI-Vitality Demo" width="700">
+  <img src="![img2](https://github.com/meaviral17/Vitality-Bot/assets/81246801/84482e83-7a05-4a87-977a-90ea98395651)
+" alt="Inclusi-AI-Vitality Demo" width="700">
 </p>
 
 ## Statistics on Mental Health
