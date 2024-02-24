@@ -20,7 +20,7 @@ This open-source project emerged from the Microsoft Learn Student Ambassadors Pr
 
  ## Achievements and Project Demo
 - *Team Inclusi-AI Vitality:* A dynamic team dedicated to leveraging AI for mental well-being solutions during the Microsoft Learn Student Ambassadors Project cohort from September to November 2023. Our commitment to innovation and user support led us to develop a functional prototype, showcasing our dedication to making a positive impact on users.
-- Explore the app by accessing the [deployed frontend app's URL](https://github.com/deepthibalasubramanian/Inclusi-AI-Vitality). Interact with the chatbot, utilize mood tracking, and explore personalized recommendations.
+- Explore the app by accessing the [deployed frontend app's URL](https://vitalityapp.azurewebsites.net/). Interact with the chatbot, utilize mood tracking, and explore personalized recommendations.
 - You can watch the [project demo here](https://www.youtube.com/watch?v=4YFudJ-0B2s).
 
 <p align="center">
