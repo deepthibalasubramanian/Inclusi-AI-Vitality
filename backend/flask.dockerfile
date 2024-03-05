@@ -10,6 +10,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 4000
 
-CMD ["python", "run.py"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=4000"]
